@@ -5,13 +5,27 @@ import randfacts
 
 app = Flask(__name__)
 
+# @app.route("/")
+# def home():
+#     joke = pyjokes.get_joke(language="en", category="neutral")
+#     return render_template("jokes.html", joke=joke)
+
 @app.route("/")
 def home():
+    links = [
+        {"url": "/jokes", "name": "Jokes"},
+        {"url": "/volunteer", "name": "Volunteer"},
+        {"url": "/facts", "name": "Random Facts"},
+    ]
+    return render_template("index.html", links=links)
+
+@app.route("/jokes")
+def jokes():
     joke = pyjokes.get_joke(language="en", category="neutral")
     return render_template("jokes.html", joke=joke)
 
 @app.route("/volunteer")
-def jokes():
+def volunteer():
     file = open("class.txt", "r")
     file_lines = file.read()
     list_of_lines = file_lines.split("\n")

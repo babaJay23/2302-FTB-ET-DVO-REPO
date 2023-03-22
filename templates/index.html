@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>2302-ftb-ev-dvo</title>
+    <style>
+		body {
+			background-image: url('https://s3.us-east-1.amazonaws.com/fsa2-assets/assets/Logos/fullstack-academy-logo-full-color-rgb.jpg');
+			background-size: no-repe;
+		}
+	</style>
+  </head>
+  <body>
+    <h1>Welcome DevOps Class</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for link in links %}
+        <tr>
+          <td>{{ link.name }}</td>
+          <td><a href="{{ link.url }}">{{ link.url }}</a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>
